@@ -369,6 +369,12 @@
         border-top: 1px solid var(--sky-pale);
         border-bottom: 1px solid var(--sky-pale);
       }
+      .cd-title {
+        font-family: var(--font-script);
+        font-size: clamp(3rem, 8vw, 4.5rem);
+        color: var(--pink);
+        margin-bottom: 1.5rem;
+      }
       .cd-grid {
         display: flex;
         justify-content: center;
@@ -430,19 +436,11 @@
         margin: 0 auto;
         box-shadow: 0 10px 30px rgba(187, 221, 240, 0.2);
       }
-      .cuando-badge-modern {
-        background: var(--sky-pale);
+      .cuando-title {
+        font-family: var(--font-script);
+        font-size: clamp(3rem, 8vw, 4.5rem);
         color: var(--pink);
-        font-family: var(--font-body);
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        padding: 0.6rem 1.5rem;
-        border-radius: 50px;
-        display: inline-block;
         margin-bottom: 1.5rem;
-        border: 1px solid var(--sky-pastel);
       }
       .cuando-date {
         font-family: var(--font-display);
@@ -844,6 +842,7 @@
       <!-- COUNTDOWN -->
       <section id="countdown" class="sec">
         <div class="sec-inner">
+          <h2 class="cd-title reveal">Faltan solo:</h2>
           <div class="cd-grid reveal">
             <div class="cd-unit">
               <div class="cd-box">
@@ -880,7 +879,7 @@
             15 años, mil recuerdos y una noche para nunca olvidar.
           </p>
           <div class="cuando-card reveal" style="transition-delay: 0.2s">
-            <div class="cuando-badge-modern">Cuándo y dónde</div>
+            <h2 class="cuando-title">Cuándo y dónde</h2>
             <h3 class="cuando-date">Viernes 4 de septiembre · 22:00 hs</h3>
             <p class="cuando-address">Pedro Goyena 478</p>
             <a
@@ -1012,7 +1011,7 @@
 
       <!-- CIERRE -->
       <section id="cierre">
-        <span class="cierre-firma reveal">Te espero - Pili</span>
+        <span class="cierre-firma reveal">Te espero, Pili</span>
       </section>
 
       <footer><p>Mis XV Años · Pili · 2026</p></footer>
