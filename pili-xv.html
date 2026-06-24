@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Invitación XV Años de Pili - 4 de septiembre de 2026"
+    />
+    <title>Mis XV • Pili</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Nunito:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --pink: #e8729a;
+        --pink-light: #f4a8c0;
+        --pink-pale: #fce8f0;
+        --sky: #b8d8e8;
+        --sky-light: #d8eef6;
+        --sky-pale: #eef6fa;
+        --gold: #c8a96a;
+        --gold-light: #e4d4a8;
+        --ivory: #faf7f0;
+        --ivory-dark: #f2ede4;
+        --text-dark: #3a2030;
+        --text-mid: #7a4060;
+        --text-light: #b08090;
+        --font-display: "Cormorant Garamond", Georgia, serif;
+        --font-script: "Great Vibes", cursive;
+        --font-body: "Nunito", sans-serif;
+        --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--ivory);
+        color: var(--text-dark);
+        font-family: var(--font-body);
+        overflow-x: hidden;
+      }
+
+      /* --- PORTADA (COVER) --- */
+      #cover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--pink);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+        transition:
+          opacity 1s var(--ease),
+          visibility 1s;
+      }
+
+      #cover.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .cover-text-top {
+        font-family: var(--font-body);
+        color: white;
+        letter-spacing: 3px;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .cover-title {
+        font-family: var(--font-script);
+        color: white;
+        font-size: 6rem;
+        line-height: 1;
+        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* ESTILO DESTACADO MIS 15 - PORTADA Y CUADRO */
+      .mis-15-destacado {
+        font-family: var(--font-display);
+        font-size: 2.2rem;
+        color: var(--gold);
+        text-shadow:
+          2px 2px 4px var(--sky),
+          0 0 15px var(--sky-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 15px;
+        margin-bottom: 30px;
+        font-weight: 600;
+      }
+
+      .mis-15-destacado .num {
+        font-size: 3.5rem;
+        color: var(--gold);
+        text-shadow:
+          2px 2px 5px var(--sky),
+          0 0 20px var(--sky-light);
+      }
+
+      .btn-abrir {
+        background-color: white;
+        color: var(--pink);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .btn-abrir:active {
+        transform: scale(0.95);
+      }
+
+      /* --- CONTENIDO PRINCIPAL --- */
+      #main-content {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 1.5s var(--ease);
+        padding-bottom: 50px;
+      }
+
+      #main-content.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* CUADRO RECTANGULAR ADAPTADO */
+      .hero-section {
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+        position: relative;
+      }
+
+      .rect-box {
+        background-color: var(--pink);
+        border: 2px solid white;
+        outline: 2px solid var(--pink);
+        outline-offset: -6px;
+        width: 90%; /* Ajuste rectangular */
+        max-width: 450px;
+        padding: 50px 20px; /* Más alto que ancho */
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(232, 114, 154, 0.2);
+        z-index: 2;
+      }
+
+      .rect-box .box-title {
+        font-family: var(--font-script);
+        color: white;
+        font-size: 5.5rem;
+        line-height: 1;
+      }
+
+      .rect-box .mis-15-destacado {
+        /* Ajustes finos para que resalte sobre el rosa */
+        color: var(--gold-light);
+        text-shadow:
+          2px 2px 6px rgba(184, 216, 232, 0.8),
+          0 0 15px var(--sky);
+      }
+
+      .rect-box .mis-15-destacado .num {
+        color: var(--gold-light);
+      }
+
+      .frase {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 1.4rem;
+        color: var(--text-mid);
+        text-align: center;
+        margin: 30px 20px;
+        line-height: 1.5;
+      }
+
+      /* --- CONTADOR HORIZONTAL FIJO --- */
+      .countdown-section {
+        padding: 20px 10px;
+        background-color: var(--pink-pale);
+        margin-bottom: 40px;
+      }
+
+      .countdown-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px; /* Espacio mínimo para que entren los 4 */
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        flex-wrap: nowrap !important; /* Fuerza a que no baje el segundero */
+      }
+
+      .cd-box {
+        flex: 1; /* Todos toman el mismo ancho */
+        background: white;
+        border: 1px solid var(--sky-light);
+        border-radius: 12px;
+        padding: 15px 2px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(184, 216, 232, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cd-num {
+        font-family: var(--font-display);
+        font-size: clamp(
+          1.4rem,
+          6vw,
+          2.5rem
+        ); /* Se achica solo si la pantalla es muy pequeña */
+        color: var(--pink);
+        line-height: 1;
+        margin-bottom: 5px;
+      }
+
+      .cd-label {
+        font-family: var(--font-body);
+        font-size: clamp(
+          0.5rem,
+          2vw,
+          0.75rem
+        ); /* Texto pequeño para que no rompa */
+        color: var(--text-mid);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      /* --- TARJETAS INFO (CUÁNDO Y DÓNDE) --- */
+      .info-card {
+        background: white;
+        border: 1px solid var(--sky-light);
+        border-radius: 20px;
+        width: 90%;
+        max-width: 400px;
+        margin: 0 auto 30px auto;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+      }
+
+      .badge-title {
+        background-color: var(--sky-pale);
+        color: var(--text-mid);
+        font-family: var(--font-body);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        padding: 8px 20px;
+        border-radius: 20px;
+        display: inline-block;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .info-data {
+        font-family: var(--font-display);
+        font-size: 1.8rem;
+        color: var(--text-dark);
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cover">
+      <p class="cover-text-top">Estás invitado/a a</p>
+      <h1 class="cover-title">Pili</h1>
+
+      <div class="mis-15-destacado">Mis <span class="num">15</span> Años</div>
+
+      <button class="btn-abrir" onclick="abrirInvitacion()">
+        Abrir invitación ✨
+      </button>
+    </div>
+
+    <div id="main-content">
+      <section class="hero-section">
+        <div class="rect-box">
+          <h1 class="box-title">Pili</h1>
+          <div class="mis-15-destacado">
+            Mis <span class="num">15</span> Años
+          </div>
+        </div>
+      </section>
+
+      <p class="frase">
+        15 años, mil recuerdos y una noche para nunca olvidar.
+      </p>
+
+      <section class="countdown-section">
+        <div class="countdown-container">
+          <div class="cd-box">
+            <span class="cd-num" id="days">00</span>
+            <span class="cd-label">Días</span>
+          </div>
+          <div class="cd-box">
+            <span class="cd-num" id="hours">00</span>
+            <span class="cd-label">Horas</span>
+          </div>
+          <div class="cd-box">
+            <span class="cd-num" id="minutes">00</span>
+            <span class="cd-label">Minutos</span>
+          </div>
+          <div class="cd-box">
+            <span class="cd-num" id="seconds">00</span>
+            <span class="cd-label">Segundos</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="info-card">
+          <div class="badge-title">Cuándo y Dónde</div>
+          <p class="info-data">Viernes 4 de septiembre</p>
+          <p
+            style="
+              font-family: var(--font-body);
+              color: var(--text-mid);
+              margin-bottom: 20px;
+            "
+          >
+            21:00 hs
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Función para abrir la invitación
+      function abrirInvitacion() {
+        document.getElementById("cover").classList.add("hidden");
+        setTimeout(() => {
+          document.getElementById("main-content").classList.add("visible");
+          // Si tenías música, aquí iría el audio.play();
+        }, 500);
+      }
+
+      // Lógica del Contador (Ajustado al 4 de septiembre de 2026)
+      const countDownDate = new Date("Sep 4, 2026 21:00:00").getTime();
+
+      const x = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("minutes").innerHTML = minutes
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("seconds").innerHTML = seconds
+          .toString()
+          .padStart(2, "0");
+
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("days").innerHTML = "00";
+          document.getElementById("hours").innerHTML = "00";
+          document.getElementById("minutes").innerHTML = "00";
+          document.getElementById("seconds").innerHTML = "00";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
